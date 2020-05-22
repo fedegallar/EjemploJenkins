@@ -4,7 +4,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm --version'
+                echo 'Building'
+            }
+        }
+        stage('Test') {
+            steps{
+                echo 'Testing'
             }
         }
         stage('Deploy') {
