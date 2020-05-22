@@ -1,10 +1,13 @@
 Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent { docker { image 'node:6.3' } }
+    agent any
+    options {
+        skipStagesAfterUnstable()
+    }
     stages {
         stage('Build') {
             steps {
-                echo 'Building'
+                sh 'npm install'
             }
         }
         stage('Test') {
